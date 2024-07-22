@@ -1,0 +1,5 @@
+mutation VoteComment($inputVoteValue: VoteType!, $commentId: Int!) {
+	voteComment(inputVoteValue: $inputVoteValue, commentId: $commentId) {
+		...commentMutationResponse
+	}
+}

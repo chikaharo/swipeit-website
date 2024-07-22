@@ -1,0 +1,16 @@
+fragment commentWithUserInfo on Comment {
+	id
+	text
+	createdAt
+	updatedAt
+	parentId
+	postId
+	userId
+	points
+	voteType
+	isSoftDeleted
+	user {
+		id
+		username
+	}
+}

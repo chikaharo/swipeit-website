@@ -1,0 +1,13 @@
+query Comments($limit: Int!, $cursor: String, $postId: ID!) {
+	comments(limit: $limit, cursor: $cursor, postId: $postId) {
+		totalCount
+		cursor
+		hasMore
+		paginatedComments {
+			...commentWithUserInfo
+			children {
+				...commentWithUserInfo
+			}
+		}
+	}
+}

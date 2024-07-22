@@ -1,0 +1,7 @@
+query CommentIds($limit: Int!, $postId: ID!, $cursor: String) {
+	comments(limit: $limit, postId: $postId, cursor: $cursor) {
+		paginatedComments {
+			id
+		}
+	}
+}

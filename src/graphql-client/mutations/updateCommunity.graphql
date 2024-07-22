@@ -1,0 +1,5 @@
+mutation UpdateCommunity($updateCommunityInput: UpdateCommunityInput!) {
+	updateCommunity(updateCommunityInput: $updateCommunityInput) {
+		...communityMutationResponse
+	}
+}

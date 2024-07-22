@@ -1,0 +1,5 @@
+mutation CreateCommunity($createCommunityInput: CreateCommunityInput!) {
+	createCommunity(createCommunityInput: $createCommunityInput) {
+		...communityMutationResponse
+	}
+}

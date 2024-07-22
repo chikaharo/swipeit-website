@@ -1,0 +1,9 @@
+fragment communityMutationResponse on CommunityMutationResponse {
+	...communityMutationStatuses
+	community {
+		...communityWithPosts
+	}
+	errors {
+		...fieldError
+	}
+}

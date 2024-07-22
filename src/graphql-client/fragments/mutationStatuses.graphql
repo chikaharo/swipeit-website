@@ -1,0 +1,22 @@
+fragment userMutationStatuses on UserMutationResponse {
+	code
+	success
+	message
+}
+
+fragment postMutationStatuses on PostMutationResponse {
+	code
+	success
+	message
+}
+fragment communityMutationStatuses on CommunityMutationResponse {
+	code
+	success
+	message
+}
+
+fragment commentMutationStatuses on CommentMutationResponse {
+	code
+	success
+	message
+}

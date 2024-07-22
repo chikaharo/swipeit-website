@@ -1,0 +1,12 @@
+query Communities($limit: Int!, $cursor: String, $title: String) {
+	communities(limit: $limit, cursor: $cursor, title: $title) {
+		totalCount
+		cursor
+		hasMore
+		paginatedCommunities {
+			id
+			title
+			description
+		}
+	}
+}

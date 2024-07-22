@@ -1,0 +1,5 @@
+mutation DeleteCommunity($id: ID!) {
+	deleteCommunity(id: $id) {
+		...communityMutationStatuses
+	}
+}

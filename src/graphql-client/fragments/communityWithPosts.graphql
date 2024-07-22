@@ -1,0 +1,14 @@
+fragment communityWithPosts on Community {
+	id
+	title
+	description
+	createdAt
+	updatedAt
+	posts {
+		...postWithUserInfo
+	}
+	user {
+		id
+		username
+	}
+}

@@ -1,0 +1,5 @@
+query Community($id: ID!) {
+	community(id: $id) {
+		...communityWithPosts
+	}
+}
