@@ -48,11 +48,11 @@ function createApolloClient(headers: IncomingHttpHeaders | null = null) {
 	};
 
 	const httpLink = new HttpLink({
-		// uri: "https://swipeit-api.onrender.com/graphql", // Server URL (must be absolute)
-		uri:
-			process.env.NODE_ENV === "production"
-				? process.env.PROD_BACKEND_URL
-				: process.env.DEV_BACKEND_URL,
+		uri: "https://swipeit-api.onrender.com/graphql", // Server URL (must be absolute)
+		// uri:
+		// 	process.env.NODE_ENV === "production"
+		// 		? process.env.PROD_BACKEND_URL
+		// 		: process.env.DEV_BACKEND_URL,
 		credentials: "include", // Additional fetch() options like `credentials` or `headers`
 		fetch: enhancedFetch,
 	});
