@@ -14,7 +14,7 @@ const Wrapper = ({ children, size = "regular" }: IWrapperProps) => {
 			maxW={size === "regular" ? "1200px" : "400px"}
 			w="100%"
 			minH="calc(100vh-24px)"
-			mt={8}
+			mt={4}
 			mx="auto"
 			pb={24}
 		>

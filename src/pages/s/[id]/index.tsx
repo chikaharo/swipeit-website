@@ -28,8 +28,6 @@ import {
 } from "../../../generated/graphql";
 import { addApolloState, initializeApollo } from "../../../lib/apolloClient";
 import UpvoteSection from "../../../components/UpvoteSection";
-import Sidebar from "../../../components/Sidebar";
-import BannerImage from "../../../../public/images/banner-1.png";
 import { useRouter } from "next/router";
 import { AddIcon } from "@chakra-ui/icons";
 
@@ -44,8 +42,6 @@ const CommunityViewPage = () => {
 		// component nao render boi cai Posts query, se rerender khi networkStatus thay doi, tuc la fetchMore
 		notifyOnNetworkStatusChange: true,
 	});
-	const { data: communitiesData, loading: communitiesLoading } =
-		useCommunitiesQuery();
 
 	const { data: communityData, loading: communityLoading } = useCommunityQuery({
 		variables: {
@@ -60,7 +56,7 @@ const CommunityViewPage = () => {
 
 	return (
 		<>
-			{loading || (communitiesLoading && !loadingMorePosts) ? (
+			{loading || !loadingMorePosts ? (
 				<Flex justifyContent="center" alignItems="center" minH="100vh">
 					<Spinner />
 				</Flex>
@@ -148,13 +144,6 @@ export const getServerSideProps: GetServerSideProps = async (
 		variables: {
 			limit,
 			communityId: communityId ? parseInt(communityId as string) : 1,
-		},
-	});
-
-	await apolloClient.query({
-		query: CommunityDocument,
-		variables: {
-			id: communityId ? parseInt(communityId as string) : 1,
 		},
 	});
 

@@ -23,21 +23,30 @@ const CreateCommunity = () => {
 		await CreateCommunity({
 			variables: { createCommunityInput: values },
 			update(cache, { data }) {
-				// cache.modify({
-				// 	fields: {
-				// 		communities(existing) {
-				if (data?.createCommunity.success && data.createCommunity.community) {
-					const newCommunityRef = cache.identify(
-						data.createCommunity.community
-					);
-					console.log({ newCommunityRef });
-					// const newCommunitiesAfter = [...existing, newCommunityRef];
-					// return newCommunitiesAfter;
-				}
+				cache.modify({
+					fields: {
+						communities(existing) {
+							if (
+								data?.createCommunity.success &&
+								data.createCommunity.community
+							) {
+								const newCommunityRef = cache.identify(
+									data.createCommunity.community
+								);
+								const newCommunitiesAfter = {
+									...existing,
+									totalCount: existing.totalCount + 1,
+									paginatedCommunities: [
+										...existing.paginatedCommunities,
+										{ __ref: newCommunityRef },
+									],
+								};
+								// return newCommunitiesAfter;
+							}
+						},
+					},
+				});
 			},
-			// 	},
-			// });
-			// },
 		});
 		router.push("/");
 	};
